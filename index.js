@@ -1,7 +1,3 @@
-console.log("Hello World");
-
-
-
 
 // github :
 
