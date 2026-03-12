@@ -9,7 +9,7 @@ export default function App(){
   }
 
   function Decrement(){
-    count>0 ? setCount(count-=1) : setCount(0);
+    setCount(count-=1);
   }
 
   return(
