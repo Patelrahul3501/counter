@@ -1,62 +1,26 @@
-import React, { useState } from 'react';
-import './App.css';
+import React,{useState} from 'react'
 
-const App = () => {
-  const [expression, setExpression] = useState('');
-  const [result, setResult] = useState('');
+export default function App(){
 
-  const handleNumberClick = (number) => {
-    setExpression(expression + number);
-  };
+  let [count, setCount] = useState(0)
 
-  const handleOperatorClick = (operator) => {
-    setExpression(expression + operator);
-  };
+  function increment(){
+    setCount(count+=1);
+  }
 
-  const handleClearClick = () => {
-    setExpression('');
-    setResult('');
-  };
+  function Decrement(){
+    count>0 ? setCount(count-=1) : setCount(0);
+  }
 
-  const handleCalculate = () => {
-    try {
-      const result = eval(expression);
-      setResult(result.toString());
-      setExpression('');
-    } catch (error) {
-      setResult('Error');
-    }
-  };
+  return(
+    
+    <>
 
-  return (
-    <div className="calculator">
-      <input
-        type="text"
-        value={expression}
-        readOnly
-        className="calculator-input"
-      />
-      <div className="calculator-keys">
-        <button onClick={handleClearClick} className="calculator-button">C</button>
-        <button onClick={() => handleOperatorClick('/')} className="calculator-button">/</button>
-        <button onClick={() => handleNumberClick(7)} className="calculator-button">7</button>
-        <button onClick={() => handleNumberClick(8)} className="calculator-button">8</button>
-        <button onClick={() => handleNumberClick(9)} className="calculator-button">9</button>
-        <button onClick={() => handleOperatorClick('*')} className="calculator-button">*</button>
-        <button onClick={() => handleNumberClick(4)} className="calculator-button">4</button>
-        <button onClick={() => handleNumberClick(5)} className="calculator-button">5</button>
-        <button onClick={() => handleNumberClick(6)} className="calculator-button">6</button>
-        <button onClick={() => handleOperatorClick('-')} className="calculator-button">-</button>
-        <button onClick={() => handleNumberClick(1)} className="calculator-button">1</button>
-        <button onClick={() => handleNumberClick(2)} className="calculator-button">2</button>
-        <button onClick={() => handleNumberClick(3)} className="calculator-button">3</button>
-        <button onClick={() => handleOperatorClick('+')} className="calculator-button">+</button>
-        <button onClick={() => handleNumberClick(0)} className="calculator-button">0</button>
-        <button onClick={handleCalculate} className="calculator-button">=</button>
-      </div>
-      <p className="calculator-result">Result: {result}</p>
-    </div>
-  );
-};
+        <h1>Count : {count}</h1><br></br>
+        <button onClick={increment}>Increment</button>
+        <button onClick={Decrement}>Decrement</button>
 
-export default App;
+    </>
+    
+  )
+}
