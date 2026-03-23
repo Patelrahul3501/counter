@@ -69,9 +69,11 @@ function Password_Generator(){
     return(
         <>
 
+        <div className="main_cont w-full h-full bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url("./bg.jpg")`}}>
+
             <div className="cont flex justify-center items-center h-screen">
 
-                    <div className="form bg-gray-800 p-10 rounded-lg">
+                    <div className="form bg-transparent backdrop-blur-3xl p-10 rounded-lg">
 
                         <h1 className='text-white text-3xl mb-4 font-bold'>Password Generator</h1>
                         <hr className='border-gray-600 mb-4'></hr>
@@ -120,6 +122,8 @@ function Password_Generator(){
                     </div>
 
             </div>
+
+        </div>
             
         </>
     )
